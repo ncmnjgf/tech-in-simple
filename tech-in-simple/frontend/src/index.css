@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&display=swap');
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --border-radius: 0px;
+  --border-width: 5px;
+  --shadow-offset: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+/* Brutalism Utility Classes */
+.brutal-card {
+  border: var(--border-width) solid var(--text-color);
+  background: var(--bg-color);
+  box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--text-color);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.brutal-card.interactive {
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.brutal-card.interactive:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: calc(var(--shadow-offset) + 4px) calc(var(--shadow-offset) + 4px) 0 var(--text-color);
+}
+
+.brutal-input {
+  border: var(--border-width) solid var(--text-color);
+  padding: 1rem;
+  font-size: 1.2rem;
+  width: 100%;
+  outline: none;
+  font-weight: 700;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.brutal-input:focus {
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+.brutal-select {
+  border: var(--border-width) solid var(--text-color);
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  outline: none;
+  appearance: none;
+  background: var(--bg-color);
+  color: var(--text-color);
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.brutal-select:focus {
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+.brutal-btn {
+  background: var(--text-color);
+  color: var(--bg-color);
+  border: var(--border-width) solid var(--text-color);
+  padding: 1rem 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 900;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.brutal-btn:hover:not(:disabled) {
+  background: var(--bg-color);
+  color: var(--text-color);
+  box-shadow: 6px 6px 0 var(--text-color);
+  transform: translate(-4px, -4px);
+}
+
+.brutal-btn:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 var(--text-color);
+}
+
+.brutal-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.brutal-btn-outline {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.brutal-btn-outline:hover:not(:disabled) {
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: var(--text-color);
+}
+
+h1 { font-size: 4rem; margin-bottom: 1rem; line-height: 1; }
+h2 { font-size: 2.5rem; margin-bottom: 0.8rem; line-height: 1.1; }
+h3 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+  }
+  h1 { font-size: 3rem; }
+}
+
+.label-title {
+  display: block;
+  font-weight: 900;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.brutal-badge {
+  display: inline-block;
+  border: 3px solid var(--text-color);
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Mobile Responsive Grids */
+.brutal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .header-actions {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .header-actions button {
+    width: 100%;
+    flex: 1 1 100%;
+  }
+}
+
